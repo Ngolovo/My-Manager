@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="./output.css" rel="stylesheet" />
+  <title>My Manager - Employees</title>
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="bg-blue-600 text-white p-4">
+        <div class="max-w-6xl mx-auto flex justify-between">
+            <h2 class="text-2xl font-bold">My Manager</h2>
+            <ul class="flex space-x-4">
+                <li><a href="index.html" class="hover:text-yellow-300">Home</a></li>
+                <li><a href="employees.html" class="hover:text-yellow-300">Employees</a></li>
+                <li><a href="stock.html" class="hover:text-yellow-300">Stock</a></li>
+                <li><a href="journal.html" class="hover:text-yellow-300">Journal</a></li>
+                <li><a href="todo.html" class="hover:text-yellow-300">To-Do</a></li>
+                <li id="loginLogout"><a href="#" class="hover:text-yellow-300" onclick="logout()">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto p-6 mt-8 bg-white shadow-lg rounded-lg">
+    <h1 class="text-3xl font-bold mb-6 text-gray-800">Employee Management</h1>
+
+    <!-- Add Employee Form -->
+    <div class="grid md:grid-cols-3 gap-4 mb-6">
+      <input type="text" id="employeeName" placeholder="Employee Name"
+        class="px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none col-span-1" />
+      <input type="text" id="employeeRole" placeholder="Role"
+        class="px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none col-span-1" />
+      <button onclick="addEmployee()"
+        class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition col-span-1">
+        Add Employee
+      </button>
+    </div>
+
+    <!-- Employee List -->
+    <div class="mb-8">
+      <h2 class="text-xl font-semibold mb-3 text-blue-600">Employee List</h2>
+      <ul id="employeeList" class="space-y-2 text-gray-700 list-inside list-disc"></ul>
+    </div>
+
+    <!-- Daily Records -->
+    <div>
+      <h2 class="text-xl font-semibold mb-3 text-blue-600">Daily Records</h2>
+      <div class="grid md:grid-cols-3 gap-4 mb-4">
+        <select id="recordEmployee"
+          class="px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none col-span-1">
+          <option value="">Select Employee</option>
+        </select>
+        <input type="text" id="dailyRecord" placeholder="Record (e.g., Hours Worked)"
+          class="px-4 py-2 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none col-span-1" />
+        <button onclick="addDailyRecord()"
+          class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition col-span-1">
+          Add Record
+        </button>
+      </div>
+      <ul id="dailyRecords" class="space-y-2 text-gray-700 list-inside list-disc"></ul>
+    </div>
+  </main>
+
+  <!-- JS -->
+  <script src="common.js"></script>
+  <script src="employees.js"></script>
+</body>
+</html>

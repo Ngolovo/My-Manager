@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="./output.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+<label for="date1">Date 1</label>
+    <input type="text" id="date1" name="date1">
+    <br>
+    <label for="date2">Date 2</label>
+    <input type="date" id="date2" name="date2">
+    <br>
+    <button id="compareDates" onclick="compareDates()">Compare Dates</button>
+    <div class="container">
+        <h2>TODO List</h2>
+        <div class="row">
+            <input type="text" id="todoInput" placeholder="Enter a new task">
+            <input type="date" id="todoDate">
+            <button id="addTodo" onclick="addTask()" >Add</button>
+        </div>
+        <ul id="todoList">
+            <li class="checked">Task 1</li>
+            <li>Task 2</li>
+            <li>Task 3</li>
+        </ul>
+    </div>
+    <div class="reminder">
+        <h2>Reminder</h2>
+
+    </div>
+
+
+
+    <script>
+       const todoInput = document.getElementById('todoInput');
+       const listContainer = document.getElementById('todoList');
+       let todoDate = document.getElementById('todoDate');
+       
+       function addTask() {
+       let todoDateValue = new Date(todoDate.value);
+       const todoInput = document.getElementById('todoInput').value;
+       const listContainer = document.getElementById('todoList');
+       //let date2Value = new Date(date2.value);
+            if (todoInput && todoDate) {
+                let li = document.createElement('li');
+                li.innerText = todoInput + " - " + todoDateValue.toLocaleDateString();
+                listContainer.appendChild(li);
+            }
+
+            if (todoDate === date2Value) {}
+
+       }
+
+
+        // Set Date 1 to today's date in a consistent format
+        let date1 = document.getElementById('date1');
+        date1.value = new Date().toISOString().split('T')[0]; // YYYY-MM-DD format
+        let date2 = document.getElementById('date2');
+
+        function compareDates() {
+            // Get and parse date values
+            let date1Value = new Date(date1.value);
+            let date2Value = new Date(date2.value);
+
+            // Check if dates are valid
+            if (isNaN(date1Value.getTime()) || isNaN(date2Value.getTime())) {
+                alert("Invalid date format! Please ensure both dates are valid.");
+                return;
+            }
+
+            // Compare dates
+            if (date1Value.getTime() === date2Value.getTime()) {
+                alert("The dates are the same.");
+            } else if (date2Value > date1Value) {
+                alert("Date 2 is later than Date 1.");
+            } else {
+                alert("Date 2 is earlier than Date 1.");
+            }
+        }
+    </script>
+</body>
+</html>

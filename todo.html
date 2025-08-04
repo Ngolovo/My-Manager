@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="./output.css" rel="stylesheet">
+    <title>My Manager - To-Do</title>
+</head>
+<body class="bg-gray-100 text-gray-800 min-h-screen p-6">
+    <nav class="bg-blue-600 text-white p-4">
+        <div class="max-w-6xl mx-auto flex justify-between">
+            <h2 class="text-2xl font-bold">My Manager</h2>
+            <ul class="flex space-x-4">
+                <li><a href="index.html" class="hover:text-yellow-300">Home</a></li>
+                <li><a href="employees.html" class="hover:text-yellow-300">Employees</a></li>
+                <li><a href="stock.html" class="hover:text-yellow-300">Stock</a></li>
+                <li><a href="journal.html" class="hover:text-yellow-300">Journal</a></li>
+                <li><a href="todo.html" class="hover:text-yellow-300">To-Do</a></li>
+                <li id="loginLogout"><a href="#" class="hover:text-yellow-300" onclick="logout()">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="max-w-xl mx-auto bg-white shadow-lg rounded-xl p-6">
+    <h2 class="text-3xl font-bold text-center text-blue-600 mb-6">Todo List</h2>
+
+    <!-- Input section -->
+    <div class="flex flex-col md:flex-row md:items-center gap-4 mb-6">
+      <input type="text" id="todoInput" placeholder="Enter task"
+             class="flex-1 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" />
+      <input type="date" id="todoDate"
+             class="p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" />
+      <button onclick="addTask()"
+              class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded transition">
+        Add Task
+      </button>
+    </div>
+
+    <!-- Task list -->
+    <ul id="todoList" class="space-y-2">
+      <!-- List items will go here -->
+    </ul>
+  </div>
+
+  <!-- Reminder section -->
+  <div class="max-w-xl mx-auto mt-8 bg-yellow-50 shadow-md rounded-xl p-6">
+    <h2 class="text-2xl font-semibold text-yellow-700 mb-4">Reminder (Today's Tasks)</h2>
+    <ul id="reminderList" class="space-y-2 list-disc list-inside text-gray-700">
+      <!-- Reminder items will go here -->
+    </ul>
+  </div>
+  
+    <script src="common.js"></script>
+    <script src="todo.js"></script>
+
+
+</body>
+</html>
